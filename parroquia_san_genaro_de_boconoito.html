@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Genaro de Boconoíto - Diócesis de Guanare</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'parroquia-blue': '#1082c4',
+                        'parroquia-gold': '#f5b316',
+                        'parroquia-red': '#be1e2d',
+                        'parroquia-green': '#197c4e',
+                        'parroquia-dark': '#1a1a1a',
+                        'parroquia-cream': '#fdfbf7'
+                    },
+                    fontFamily: {
+                        'serif-title': ['Cinzel', 'serif'],
+                        'sans-body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #1a1a1a;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f5b316 0%, #d4920b 100%);
+        }
+        .blue-gradient {
+            background: linear-gradient(135deg, #0e72ac 0%, #1082c4 50%, #084c75 100%);
+        }
+        .modal-blur {
+            backdrop-filter: blur(5px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1082c4;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#fdfbf7] min-h-screen flex flex-col justify-between selection:bg-amber-200 selection:text-amber-900">
+
+    <!-- Top Announcement Bar -->
+    <div id="top-announcement-bar" class="bg-amber-500 text-slate-900 text-xs sm:text-sm py-2 px-4 font-semibold text-center flex justify-between items-center transition-all">
+        <div class="container mx-auto flex items-center justify-center gap-2">
+            <i class="fa-solid fa-bullhorn text-amber-900"></i>
+            <span id="announcement-text">¡Bienvenidos al nuevo portal web de la Parroquia San Genaro de Boconoíto!</span>
+        </div>
+        <button onclick="document.getElementById('top-announcement-bar').style.display='none'" class="text-slate-800 hover:text-black">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-md border-b-2 border-amber-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <!-- Parroquia Logos Header -->
+                <div class="flex items-center gap-3 sm:gap-4 cursor-pointer" onclick="switchTab('inicio')">
+                    <!-- Logo 1: Guanare Diocesis Shield -->
+                    <div id="header-logo-diocesis" class="w-12 h-14 sm:w-14 sm:h-16 flex items-center justify-center transition-transform hover:scale-105">
+                        <!-- Default SVG Representation of Guanare Diocese Shield -->
+                        <svg viewBox="0 0 200 240" class="w-full h-full drop-shadow">
+                            <rect width="200" height="240" rx="10" fill="none"/>
+                            <!-- Green tassels background -->
+                            <path d="M100 20 C60 20 40 40 30 70 C20 100 25 150 25 160 M100 20 C140 20 160 40 170 70 C180 100 175 150 175 160" stroke="#197c4e" stroke-width="5" fill="none"/>
+                            <circle cx="30" cy="80" r="8" fill="#197c4e"/>
+                            <circle cx="170" cy="80" r="8" fill="#197c4e"/>
+                            <!-- Green Galero Hat -->
+                            <ellipse cx="100" cy="35" rx="35" ry="8" fill="#1f2937"/>
+                            <path d="M78 35 C78 20 122 20 122 35 Z" fill="#197c4e"/>
+                            <rect x="75" y="32" width="50" height="4" fill="#be1e2d"/>
+                            <!-- Cross behind shield -->
+                            <rect x="96" y="40" width="8" height="150" fill="#f5b316"/>
+                            <rect x="75" y="60" width="50" height="8" fill="#f5b316"/>
+                            <!-- Shield -->
+                            <path d="M100 70 L155 90 C155 150 100 180 100 180 C100 180 45 150 45 90 Z" fill="#1082c4" stroke="#ffffff" stroke-width="4"/>
+                            <!-- Star in shield -->
+                            <polygon points="100,95 105,110 120,110 107,120 112,135 100,125 88,135 93,120 80,110 95,110" fill="#f5b316" stroke="#ffffff" stroke-width="1.5"/>
+                            <!-- Rays -->
+                            <path d="M100 80 L100 90 M100 140 L100 150 M60 115 L70 115 M130 115 L140 115" stroke="#ffffff" stroke-width="3"/>
+                            <!-- Motto Banner -->
+                            <rect x="35" y="195" width="130" height="20" rx="3" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+                            <text x="100" y="209" font-size="11" font-weight="bold" font-family="sans-serif" text-anchor="middle" fill="#1f2937">STELLA MATUTINA</text>
+                            <text x="100" y="15" font-size="12" font-weight="bold" font-family="sans-serif" text-anchor="middle" fill="#1f2937">DIÓCESIS DE GUANARE</text>
+                        </svg>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="h-10 w-px bg-slate-300 hidden sm:block"></div>
+
+                    <!-- Logo 2: San Genaro Parish Seal -->
+                    <div id="header-logo-parroquia" class="w-12 h-14 sm:w-14 sm:h-16 flex items-center justify-center transition-transform hover:scale-105">
+                        <svg viewBox="0 0 200 240" class="w-full h-full drop-shadow">
+                            <!-- Arch outline -->
+                            <path d="M20 200 L20 70 Q100 10 180 70 L180 200 Z" fill="#ffffff" stroke="#f5b316" stroke-width="8"/>
+                            <path d="M28 195 L28 75 Q100 20 172 75 L172 195 Z" fill="#f8fafc" stroke="#be1e2d" stroke-width="3"/>
+                            <!-- St Januarius Icon Body -->
+                            <path d="M60 190 L70 110 L130 110 L140 190 Z" fill="#be1e2d"/>
+                            <path d="M85 110 L100 135 L115 110 Z" fill="#ffffff"/>
+                            <circle cx="100" cy="85" r="18" fill="#fbcfe8"/> <!-- Head -->
+                            <!-- Mitre (Bishop's Hat) -->
+                            <path d="M82 72 L100 35 L118 72 Z" fill="#be1e2d" stroke="#f5b316" stroke-width="2"/>
+                            <path d="M100 35 L100 72" stroke="#f5b316" stroke-width="2"/>
+                            <circle cx="100" cy="55" r="3" fill="#f5b316"/>
+                            <!-- Staff Crosier -->
+                            <path d="M140 190 L140 65 Q140 45 155 45 Q165 45 165 55 Q165 65 155 65" fill="none" stroke="#f5b316" stroke-width="4"/>
+                            <!-- Reliquary of blood in hand -->
+                            <rect x="85" y="150" width="30" height="20" rx="3" fill="#1082c4"/>
+                            <circle cx="93" cy="160" r="4" fill="#be1e2d"/>
+                            <circle cx="107" cy="160" r="4" fill="#be1e2d"/>
+                        </svg>
+                    </div>
+
+                    <!-- Title Text -->
+                    <div class="leading-tight">
+                        <span class="text-xs uppercase tracking-wider text-amber-700 font-bold block">Diócesis de Guanare</span>
+                        <h1 class="font-cinzel text-base sm:text-xl font-bold text-slate-900 tracking-tight leading-none">
+                            Parroquia San Genaro
+                        </h1>
+                        <span class="text-xs text-slate-600 font-medium block">De Boconoíto, Estado Portuguesa</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <button onclick="switchTab('inicio')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50 transition" data-target="inicio">
+                        <i class="fa-solid fa-church mr-1"></i> Inicio
+                    </button>
+                    <button onclick="switchTab('horarios')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50 transition" data-target="horarios">
+                        <i class="fa-solid fa-clock mr-1"></i> Horarios
+                    </button>
+                    <button onclick="switchTab('nosotros')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50 transition" data-target="nosotros">
+                        <i class="fa-solid fa-book-bible mr-1"></i> Historia y Patrono
+                    </button>
+                    <button onclick="switchTab('pastorales')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50 transition" data-target="pastorales">
+                        <i class="fa-solid fa-users-rays mr-1"></i> Pastorales
+                    </button>
+                    <button onclick="switchTab('intenciones')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50 transition" data-target="intenciones">
+                        <i class="fa-solid fa-hands-praying mr-1"></i> Intenciones
+                    </button>
+                </nav>
+
+                <!-- Admin Button & Mobile Menu Toggle -->
+                <div class="flex items-center gap-2">
+                    <button onclick="openAdminModal()" class="bg-slate-900 text-amber-400 hover:bg-slate-800 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium flex items-center gap-1.5 transition shadow border border-amber-400/30">
+                        <i class="fa-solid fa-sliders text-amber-400"></i>
+                        <span class="hidden sm:inline">Personalizar</span>
+                    </button>
+
+                    <!-- Mobile Hamburger -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 hover:text-black p-2 rounded-lg">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <button onclick="switchTab('inicio'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-amber-50">
+                <i class="fa-solid fa-church w-6 text-amber-600"></i> Inicio
+            </button>
+            <button onclick="switchTab('horarios'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-amber-50">
+                <i class="fa-solid fa-clock w-6 text-amber-600"></i> Horarios de Misa
+            </button>
+            <button onclick="switchTab('nosotros'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-amber-50">
+                <i class="fa-solid fa-book-bible w-6 text-amber-600"></i> Historia y San Genaro
+            </button>
+            <button onclick="switchTab('pastorales'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-amber-50">
+                <i class="fa-solid fa-users-rays w-6 text-amber-600"></i> Pastorales Parroquiales
+            </button>
+            <button onclick="switchTab('intenciones'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-amber-50">
+                <i class="fa-solid fa-hands-praying w-6 text-amber-600"></i> Solicitar Intención
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- TAB 1: INICIO -->
+        <section id="tab-inicio" class="tab-content space-y-10">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-r from-blue-900 via-sky-800 to-blue-950 text-white min-h-[360px] flex items-center border-4 border-amber-400/40">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+                <div class="relative z-10 p-6 sm:p-12 max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400 text-amber-300 text-xs font-semibold mb-4 backdrop-blur">
+                        <i class="fa-solid fa-cross"></i> Comunidad de Fe, Esperanza y Caridad
+                    </div>
+                    <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4 drop-shadow-md">
+                        Bienvenidos a la Parroquia <span class="text-amber-400">San Genaro</span>
+                    </h2>
+                    <p class="text-sky-100 text-base sm:text-lg mb-8 leading-relaxed">
+                        Un templo de encuentro espiritual en el corazón de Boconoíto. Guiados por nuestro obispo en la Diócesis de Guanare y bajo la bendición y protección de San Genaro, Obispo y Mártir.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="switchTab('horarios')" class="gold-gradient hover:opacity-90 text-slate-900 font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-days"></i> Ver Horario de Misas
+                        </button>
+                        <button onclick="switchTab('intenciones')" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3 rounded-xl backdrop-blur transition flex items-center gap-2">
+                            <i class="fa-solid fa-heart"></i> Pedir una Intención
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Cards Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Lectura del Día -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-t-4 border-amber-500 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-slate-900 mb-2">Evangelio del Día</h3>
+                    <p id="daily-verse-quote" class="text-slate-600 text-sm italic mb-4">
+                        "El que quiera ser el primero, que se haga el último de todos y el servidor de todos."
+                    </p>
+                    <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full uppercase">San Marcos 9, 35</span>
+                </div>
+
+                <!-- Card 2: San Genaro Santo Patron -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-t-4 border-red-600 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-slate-900 mb-2">Nuestro Patrono</h3>
+                    <p class="text-slate-600 text-sm mb-4">
+                        San Genaro fue un insigne obispo de Benevento conocido por su fe inquebrantable y el milagro de la licuefacción de su sangre.
+                    </p>
+                    <button onclick="switchTab('nosotros')" class="text-xs font-bold text-red-600 hover:underline inline-flex items-center gap-1">
+                        Conocer su historia <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Card 3: Diócesis de Guanare -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-t-4 border-sky-600 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-slate-900 mb-2">Stella Matutina</h3>
+                    <p class="text-slate-600 text-sm mb-4">
+                        Pertenecemos a la Diócesis de Guanare, tierra bendecida de la Virgen de Coromoto, Patrona de Venezuela.
+                    </p>
+                    <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full uppercase">Diócesis Guanare</span>
+                </div>
+            </div>
+
+            <!-- Noticias & Avisos Parroquiales -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h3 class="font-cinzel text-2xl font-bold text-slate-900">Avisos y Cartelera Parroquial</h3>
+                        <p class="text-slate-500 text-sm">Mantente informado de las actividades de nuestra comunidad</p>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Actualizado
+                    </span>
+                </div>
+
+                <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic news list rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: HORARIOS DE MISA -->
+        <section id="tab-horarios" class="tab-content hidden space-y-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="font-cinzel text-3xl font-bold text-slate-900 mb-2">Horarios Litúrgicos y Sacramentos</h2>
+                <p class="text-slate-600 text-sm">Te esperamos con los brazos abiertos para celebrar la fe juntos en el Templo Parroquial de Boconoíto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Misas Domínicales y Semanales -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-100">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500 text-slate-900 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-church"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-slate-900">Santas Misas</h3>
+                            <span class="text-xs text-slate-500">Celebración Eucarística</span>
+                        </div>
+                    </div>
+
+                    <div id="misa-schedules-list" class="space-y-4">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Confesiones y Atención de Despacho -->
+                <div class="space-y-6">
+                    <!-- Confesiones -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                        <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+                            <div class="w-10 h-10 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-hands"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-cinzel text-xl font-bold text-slate-900">Confesiones y Reconciliación</h3>
+                                <span class="text-xs text-slate-500">Sacramento del Perdón</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-3" id="confession-text">
+                            Jueves y Sábados: 4:30 PM a 5:30 PM (antes de la Misa) o previa cita en despacho.
+                        </p>
+                    </div>
+
+                    <!-- Despacho Parroquial -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                        <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-cinzel text-xl font-bold text-slate-900">Despacho Parroquial</h3>
+                                <span class="text-xs text-slate-500">Fe de Bautismo, Certificados y Atención</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm" id="despacho-text">
+                            Martes a Viernes: 8:30 AM a 11:30 AM.<br>
+                            Atención presencial para solicitudes sacramentales y cartas de soltería.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: NOSOTROS Y SAN GENARO -->
+        <section id="tab-nosotros" class="tab-content hidden space-y-12">
+            <!-- San Genaro Profile Section -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- San Genaro Artwork Container -->
+                <div class="flex flex-col items-center justify-center p-6 bg-amber-50/50 rounded-2xl border-2 border-amber-200">
+                    <div id="nosotros-logo-sangenaro" class="w-48 h-56 mb-4 flex items-center justify-center">
+                        <!-- San Genaro SVG representation -->
+                        <svg viewBox="0 0 200 240" class="w-full h-full drop-shadow-md">
+                            <path d="M20 200 L20 70 Q100 10 180 70 L180 200 Z" fill="#ffffff" stroke="#f5b316" stroke-width="8"/>
+                            <path d="M28 195 L28 75 Q100 20 172 75 L172 195 Z" fill="#f8fafc" stroke="#be1e2d" stroke-width="3"/>
+                            <path d="M60 190 L70 110 L130 110 L140 190 Z" fill="#be1e2d"/>
+                            <path d="M85 110 L100 135 L115 110 Z" fill="#ffffff"/>
+                            <circle cx="100" cy="85" r="18" fill="#fbcfe8"/>
+                            <path d="M82 72 L100 35 L118 72 Z" fill="#be1e2d" stroke="#f5b316" stroke-width="2"/>
+                            <path d="M100 35 L100 72" stroke="#f5b316" stroke-width="2"/>
+                            <circle cx="100" cy="55" r="3" fill="#f5b316"/>
+                            <path d="M140 190 L140 65 Q140 45 155 45 Q165 45 165 55 Q165 65 155 65" fill="none" stroke="#f5b316" stroke-width="4"/>
+                            <rect x="85" y="150" width="30" height="20" rx="3" fill="#1082c4"/>
+                            <circle cx="93" cy="160" r="4" fill="#be1e2d"/>
+                            <circle cx="107" cy="160" r="4" fill="#be1e2d"/>
+                        </svg>
+                    </div>
+                    <span class="font-cinzel text-lg font-bold text-slate-900 text-center">San Genaro de Benevento</span>
+                    <span class="text-xs text-amber-800 font-medium">Obispo y Mártir • Fiesta: 19 de Septiembre</span>
+                </div>
+
+                <!-- Biography text -->
+                <div class="md:col-span-2 space-y-4">
+                    <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Patrono Principal</span>
+                    <h2 class="font-cinzel text-3xl font-bold text-slate-900">¿Quién fue San Genaro?</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        San Genaro nació en Italia en el siglo III y fue Obispo de Benevento durante la persecución del emperador Diocleciano. Destacó por su amor incondicional a los pobres y la valentía con la que consolaba a los cristianos encarcelados por su fe.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Sufrió el martirio por amor a Cristo en el año 305. Su legado de perseverancia, fortaleza espiritual y servicio al prójimo inspira cada día a los pobladores y feligreses de <strong>Boconoíto</strong>.
+                    </p>
+                    <div class="pt-2">
+                        <blockquote class="p-4 border-l-4 border-amber-500 bg-amber-50 text-slate-800 text-sm italic rounded-r-lg">
+                            "Proclamamos la victoria de la fe viva en el pueblo de Boconoíto bajo la maternal guía de María y el patrocinio de San Genaro."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diócesis de Guanare Section -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 space-y-4 order-2 md:order-1">
+                    <span class="bg-sky-100 text-sky-800 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Jurisdicción Eclesiástica</span>
+                    <h2 class="font-cinzel text-3xl font-bold text-slate-900">Diócesis de Guanare</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Nuestra parroquia forma parte activa de la <strong>Diócesis de Guanare</strong>, erigida por la Sede Apostólica para apacentar el pueblo de Dios en esta región de Portuguesa.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Bajo el lema <em>"Stella Matutina"</em> (Estrella de la Mañana), trabajamos en comunión con las orientaciones pastorales del obispo diocesano y en sintonía con la devoción a Nuestra Señora de Coromoto.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-6 bg-sky-50/50 rounded-2xl border-2 border-sky-200 order-1 md:order-2">
+                    <div id="nosotros-logo-diocesis" class="w-48 h-56 mb-4 flex items-center justify-center">
+                        <svg viewBox="0 0 200 240" class="w-full h-full drop-shadow-md">
+                            <path d="M100 20 C60 20 40 40 30 70 C20 100 25 150 25 160 M100 20 C140 20 160 40 170 70 C180 100 175 150 175 160" stroke="#197c4e" stroke-width="5" fill="none"/>
+                            <circle cx="30" cy="80" r="8" fill="#197c4e"/>
+                            <circle cx="170" cy="80" r="8" fill="#197c4e"/>
+                            <ellipse cx="100" cy="35" rx="35" ry="8" fill="#1f2937"/>
+                            <path d="M78 35 C78 20 122 20 122 35 Z" fill="#197c4e"/>
+                            <rect x="75" y="32" width="50" height="4" fill="#be1e2d"/>
+                            <rect x="96" y="40" width="8" height="150" fill="#f5b316"/>
+                            <rect x="75" y="60" width="50" height="8" fill="#f5b316"/>
+                            <path d="M100 70 L155 90 C155 150 100 180 100 180 C100 180 45 150 45 90 Z" fill="#1082c4" stroke="#ffffff" stroke-width="4"/>
+                            <polygon points="100,95 105,110 120,110 107,120 112,135 100,125 88,135 93,120 80,110 95,110" fill="#f5b316" stroke="#ffffff" stroke-width="1.5"/>
+                            <rect x="35" y="195" width="130" height="20" rx="3" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+                            <text x="100" y="209" font-size="11" font-weight="bold" font-family="sans-serif" text-anchor="middle" fill="#1f2937">STELLA MATUTINA</text>
+                            <text x="100" y="15" font-size="12" font-weight="bold" font-family="sans-serif" text-anchor="middle" fill="#1f2937">DIÓCESIS DE GUANARE</text>
+                        </svg>
+                    </div>
+                    <span class="font-cinzel text-lg font-bold text-slate-900 text-center">Escudo Diocesano</span>
+                    <span class="text-xs text-sky-800 font-medium">Guanare - Estado Portuguesa</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: PASTORALES -->
+        <section id="tab-pastorales" class="tab-content hidden space-y-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="font-cinzel text-3xl font-bold text-slate-900 mb-2">Pastorales y Grupos Parroquiales</h2>
+                <p class="text-slate-600 text-sm">Descubre cómo integrarte activamente en el servicio y crecimiento de nuestra comunidad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Pastoral 1: Catequesis -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-amber-400 transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-slate-900 mb-2">Catequesis Infantil y Confirmación</h3>
+                    <p class="text-slate-600 text-sm mb-4">Formación cristiana para niños y jóvenes en preparación para la Primera Comunión y la Confirmación.</p>
+                    <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-clock text-amber-500 mr-1"></i> Sábados 9:00 AM</span>
+                </div>
+
+                <!-- Pastoral 2: Past. Juvenil -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-sky-400 transition">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-slate-900 mb-2">Pastoral Juvenil San Genaro</h3>
+                    <p class="text-slate-600 text-sm mb-4">Espacio de encuentro, fraternidad, música y misión para todos los jóvenes de Boconoíto.</p>
+                    <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-clock text-sky-500 mr-1"></i> Domingos 4:00 PM</span>
+                </div>
+
+                <!-- Pastoral 3: Cáritas Parroquial -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-emerald-400 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-slate-900 mb-2">Cáritas y Servicio Social</h3>
+                    <p class="text-slate-600 text-sm mb-4">Atención alimentaria, jornadas médicas y apoyo a las familias más vulnerables del municipio.</p>
+                    <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-clock text-emerald-500 mr-1"></i> Ensayos y Jornadas</span>
+                </div>
+
+                <!-- Pastoral 4: Liturgia y Lectores -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-purple-400 transition">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-book-bible"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-slate-900 mb-2">Ministerio de Lectores y Liturgia</h3>
+                    <p class="text-slate-600 text-sm mb-4">Preparación de las lecturas sagradas y cuidado del orden en las celebraciones eucarísticas.</p>
+                    <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-clock text-purple-500 mr-1"></i> Viernes 5:00 PM</span>
+                </div>
+
+                <!-- Pastoral 5: Escrutinio y Coro -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-red-400 transition">
+                    <div class="w-12 h-12 rounded-xl bg-red-100 text-red-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-slate-900 mb-2">Coro Parroquial</h3>
+                    <p class="text-slate-600 text-sm mb-4">Animación con cantos solemnes para el Santo Sacrificio de la Misa y fiestas patronales.</p>
+                    <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-clock text-red-500 mr-1"></i> Sábados 4:00 PM</span>
+                </div>
+
+                <!-- Pastoral 6: Ministros Ext. de la Comunión -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-amber-400 transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-wine-glass"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-slate-900 mb-2">Ministros Extraordinarios</h3>
+                    <p class="text-slate-600 text-sm mb-4">Llevar el Santísimo Sacramento a enfermos y ancianos imposibilitados de asistir al templo.</p>
+                    <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-clock text-amber-600 mr-1"></i> Visitas Semanales</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: INTENCIONES Y SOLICITUDES -->
+        <section id="tab-intenciones" class="tab-content hidden space-y-8">
+            <div class="max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fa-solid fa-hands-praying"></i>
+                    </div>
+                    <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-slate-900">Solicitud de Intenciones de Misa</h2>
+                    <p class="text-slate-600 text-sm mt-1">Escribe tu intención para ser leída en las próximas celebraciones eucarísticas.</p>
+                </div>
+
+                <form id="intentions-form" onsubmit="handleIntentionSubmit(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nombre de quien solicita</label>
+                        <input type="text" id="int-name" required placeholder="Ej. María Rodríguez" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Tipo de Intención</label>
+                        <select id="int-type" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                            <option value="Salud y Sanación">Por la Salud y Sanación</option>
+                            <option value="Difuntos (Eterno Descanso)">Por el Eterno Descanso de un Difunto</option>
+                            <option value="Acción de Gracias">En Acción de Gracias</option>
+                            <option value="Cumpleaños / Aniversario">Cumpleaños o Aniversario</option>
+                            <option value="Intención Particular">Intención Particular / Necesidad</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nombre por quien se ofrece / Detalle</label>
+                        <textarea id="int-details" rows="3" required placeholder="Ej. Por la recuperación de la salud de José Pérez..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Fecha preferida para la Misa</label>
+                        <input type="date" id="int-date" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
+
+                    <button type="submit" class="w-full gold-gradient hover:opacity-90 text-slate-900 font-bold py-3.5 rounded-xl shadow-md transition text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar Intención a la Parroquia
+                    </button>
+                </form>
+
+                <div id="intention-success" class="hidden mt-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-center">
+                    <i class="fa-solid fa-circle-check text-emerald-600 text-2xl mb-2 block"></i>
+                    <p class="font-bold">¡Intención registrada con éxito!</p>
+                    <p class="text-xs mt-1">Tu petición ha sido enviada al despacho de la Parroquia San Genaro.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CUSTOMIZATION / ADMIN MODAL -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/60 modal-blur z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200">
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white p-6 rounded-t-3xl flex justify-between items-center sticky top-0 z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-400 text-slate-900 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel text-lg font-bold text-amber-400">Panel de Personalización</h3>
+                        <p class="text-xs text-slate-300">Ajusta información y reemplaza logos en tiempo real</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white p-2 text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body Tabs & Form -->
+            <div class="p-6 space-y-6">
+                <!-- Logos customization note -->
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl">
+                    <h4 class="font-bold text-amber-900 text-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-palette"></i> Paleta de Colores de los Logos
+                    </h4>
+                    <p class="text-xs text-amber-800 mt-1">
+                        El diseño respeta fielmente las tonalidades originales: <strong>Azul Rey/Mariano</strong> (#1082c4), <strong>Dorado/Amarillo</strong> (#f5b316), <strong>Rojo Vino/Obispo</strong> (#be1e2d) y <strong>Verde Cordonería</strong> (#197c4e).
+                    </p>
+                </div>
+
+                <!-- Customization Form -->
+                <div class="space-y-5">
+                    <h4 class="font-cinzel font-bold text-slate-900 border-b pb-2">1. Cambiar o Subir Logos Personalizados</h4>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Logo 1 Custom URL -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold text-slate-700">Imagen Logo Diócesis de Guanare (URL)</label>
+                            <input type="text" id="cfg-logo-1-url" placeholder="https://ejemplo.com/logo-diocesis.png" class="w-full text-xs px-3 py-2 border rounded-lg focus:ring-1 focus:ring-amber-500">
+                            <label class="block text-xs font-semibold text-slate-500">O Subir Archivo:</label>
+                            <input type="file" id="cfg-logo-1-file" accept="image/*" onchange="previewUploadedLogo(event, 'header-logo-diocesis', 'nosotros-logo-diocesis')" class="text-xs w-full text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100">
+                        </div>
+
+                        <!-- Logo 2 Custom URL -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold text-slate-700">Imagen Logo Parroquia San Genaro (URL)</label>
+                            <input type="text" id="cfg-logo-2-url" placeholder="https://ejemplo.com/logo-sangenaro.png" class="w-full text-xs px-3 py-2 border rounded-lg focus:ring-1 focus:ring-amber-500">
+                            <label class="block text-xs font-semibold text-slate-500">O Subir Archivo:</label>
+                            <input type="file" id="cfg-logo-2-file" accept="image/*" onchange="previewUploadedLogo(event, 'header-logo-parroquia', 'nosotros-logo-sangenaro')" class="text-xs w-full text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100">
+                        </div>
+                    </div>
+
+                    <h4 class="font-cinzel font-bold text-slate-900 border-b pb-2 pt-2">2. Textos y Anuncios de la Parroquia</h4>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Barra Superior de Anuncio</label>
+                        <input type="text" id="cfg-announcement" class="w-full text-sm px-3 py-2 border rounded-lg">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Evangelio / Cita Bíblica en Inicio</label>
+                        <input type="text" id="cfg-verse" class="w-full text-sm px-3 py-2 border rounded-lg">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Horario de Confesiones</label>
+                        <input type="text" id="cfg-confession" class="w-full text-sm px-3 py-2 border rounded-lg">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Horario de Despacho Parroquial</label>
+                        <input type="text" id="cfg-despacho" class="w-full text-sm px-3 py-2 border rounded-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-50 p-4 rounded-b-3xl border-t border-slate-200 flex justify-end gap-3">
+                <button onclick="closeAdminModal()" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-800 font-semibold">
+                    Cancelar
+                </button>
+                <button onclick="saveAdminChanges()" class="gold-gradient text-slate-900 font-bold px-5 py-2 rounded-xl text-sm shadow hover:opacity-90 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white mt-16 border-t-4 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Col 1: Identity -->
+                <div class="md:col-span-2 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-church"></i>
+                        </div>
+                        <h4 class="font-cinzel text-xl font-bold text-amber-400">Parroquia San Genaro</h4>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-md">
+                        Comunidad católica de fe al servicio de la gente de Boconoíto. Perteneciente a la Diócesis de Guanare, Estado Portuguesa, Venezuela.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h5 class="font-cinzel text-amber-400 font-bold mb-3 text-sm uppercase tracking-wider">Enlaces Rápido</h5>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><a href="#" onclick="switchTab('inicio'); return false;" class="hover:text-amber-400 transition">Inicio</a></li>
+                        <li><a href="#" onclick="switchTab('horarios'); return false;" class="hover:text-amber-400 transition">Horarios de Misa</a></li>
+                        <li><a href="#" onclick="switchTab('nosotros'); return false;" class="hover:text-amber-400 transition">San Genaro</a></li>
+                        <li><a href="#" onclick="switchTab('pastorales'); return false;" class="hover:text-amber-400 transition">Pastorales</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Ubicación y Contacto -->
+                <div>
+                    <h5 class="font-cinzel text-amber-400 font-bold mb-3 text-sm uppercase tracking-wider">Contacto & Ubicación</h5>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-amber-400 mt-1"></i>
+                            <span>Frente a la Plaza Bolívar, Boconoíto, Edo. Portuguesa</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-amber-400"></i>
+                            <span>Despacho Parroquial</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-amber-400"></i>
+                            <span>parroquiasangenaro.boconoito@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Parroquia San Genaro de Boconoíto - Diócesis de Guanare. Todos los derechos reservados.</p>
+                <button onclick="openAdminModal()" class="text-amber-400 hover:underline">
+                    <i class="fa-solid fa-lock text-xs mr-1"></i> Acceso Administración
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // State for dynamic parish content
+        const parishData = {
+            announcement: "¡Bienvenidos al nuevo portal web de la Parroquia San Genaro de Boconoíto!",
+            verseQuote: '"El que quiera ser el primero, que se haga el último de todos y el servidor de todos."',
+            confessionText: "Jueves y Sábados: 4:30 PM a 5:30 PM (antes de la Misa) o previa cita en despacho.",
+            despachoText: "Martes a Viernes: 8:30 AM a 11:30 AM. Atención presencial para solicitudes sacramentales y fe de bautismo.",
+            schedules: [
+                { day: "Domingos (Misa Dominical)", time: "8:00 AM y 5:00 PM", detail: "Eucaristía Solemne de la Comunidad" },
+                { day: "Martes a Sábados", time: "5:30 PM", detail: "Misa Diaria y Rezo del Santo Rosario 5:00 PM" },
+                { day: "Jueves Eucarísticos", time: "4:30 PM", detail: "Hora Santa y Exposición del Santísimo Sacramento" }
+            ],
+            news: [
+                {
+                    title: "Fiestas Patronales en Honor a San Genaro",
+                    date: "Septiembre",
+                    tag: "Celebración",
+                    desc: "Preparamos la novena y las actividades litúrgicas y culturales para celebrar a nuestro Santo Patrono."
+                },
+                {
+                    title: "Inscripciones de Catequesis Infantil",
+                    date: "Abiertas",
+                    tag: "Formación",
+                    desc: "Inscripciones abiertas en el despacho parroquial para Primera Comunión y Confirmación."
+                }
+            ]
+        };
+
+        // DOM Ready Initializer
+        window.onload = function() {
+            renderNews();
+            renderSchedules();
+            populateAdminForm();
+        };
+
+        // Navigation logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // Show target
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.remove('hidden');
+            }
+
+            // Update active states on nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                if (btn.getAttribute('data-target') === tabId) {
+                    btn.classList.add('bg-amber-100', 'text-amber-800');
+                } else {
+                    btn.classList.remove('bg-amber-100', 'text-amber-800');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render News Items
+        function renderNews() {
+            const container = document.getElementById('news-container');
+            if (!container) return;
+
+            container.innerHTML = parishData.news.map(item => `
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 hover:border-amber-400 transition">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">${item.tag}</span>
+                        <span class="text-xs font-medium text-slate-400">${item.date}</span>
+                    </div>
+                    <h4 class="font-cinzel font-bold text-slate-900 text-lg mb-1">${item.title}</h4>
+                    <p class="text-slate-600 text-sm">${item.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        // Render Mass Schedules
+        function renderSchedules() {
+            const container = document.getElementById('misa-schedules-list');
+            if (!container) return;
+
+            container.innerHTML = parishData.schedules.map(sch => `
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center gap-4">
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">${sch.day}</h4>
+                        <p class="text-xs text-slate-500">${sch.detail}</p>
+                    </div>
+                    <span class="text-xs sm:text-sm font-bold bg-amber-500 text-slate-900 px-3 py-1.5 rounded-lg whitespace-nowrap shadow-sm">
+                        ${sch.time}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        // Intention Form Submission
+        function handleIntentionSubmit(e) {
+            e.preventDefault();
+            const successBox = document.getElementById('intention-success');
+            const form = document.getElementById('intentions-form');
+
+            if (successBox && form) {
+                successBox.classList.remove('hidden');
+                form.reset();
+                setTimeout(() => {
+                    successBox.classList.add('hidden');
+                }, 6000);
+            }
+        }
+
+        // Modal Admin Controls
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function populateAdminForm() {
+            document.getElementById('cfg-announcement').value = parishData.announcement;
+            document.getElementById('cfg-verse').value = parishData.verseQuote;
+            document.getElementById('cfg-confession').value = parishData.confessionText;
+            document.getElementById('cfg-despacho').value = parishData.despachoText;
+        }
+
+        function saveAdminChanges() {
+            // Update state
+            parishData.announcement = document.getElementById('cfg-announcement').value;
+            parishData.verseQuote = document.getElementById('cfg-verse').value;
+            parishData.confessionText = document.getElementById('cfg-confession').value;
+            parishData.despachoText = document.getElementById('cfg-despacho').value;
+
+            // Apply updates to DOM
+            document.getElementById('announcement-text').innerText = parishData.announcement;
+            document.getElementById('daily-verse-quote').innerText = parishData.verseQuote;
+            document.getElementById('confession-text').innerText = parishData.confessionText;
+            document.getElementById('despacho-text').innerText = parishData.despachoText;
+
+            // Process URL logo changes if provided
+            const logo1Url = document.getElementById('cfg-logo-1-url').value;
+            const logo2Url = document.getElementById('cfg-logo-2-url').value;
+
+            if (logo1Url) {
+                updateLogoContainer('header-logo-diocesis', logo1Url);
+                updateLogoContainer('nosotros-logo-diocesis', logo1Url);
+            }
+
+            if (logo2Url) {
+                updateLogoContainer('header-logo-parroquia', logo2Url);
+                updateLogoContainer('nosotros-logo-sangenaro', logo2Url);
+            }
+
+            closeAdminModal();
+        }
+
+        // Preview logo upload from file input
+        function previewUploadedLogo(event, headerTargetId, pageTargetId) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgUrl = e.target.result;
+                    updateLogoContainer(headerTargetId, imgUrl);
+                    updateLogoContainer(pageTargetId, imgUrl);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updateLogoContainer(containerId, imageSrc) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = `<img src="${imageSrc}" alt="Logo" class="max-h-full max-w-full object-contain rounded drop-shadow">`;
+            }
+        }
+    </script>
+</body>
+</html>
